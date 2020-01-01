@@ -1,5 +1,5 @@
 (ns net.djpowell.liverepl.server.repl
-  (:require clojure.main)
+  (:require [net.djpowell.liverepl.server.cm :as cm])
   (:import (java.io InputStreamReader BufferedWriter OutputStreamWriter Writer)
     (java.net ServerSocket Socket)
     (java.util.logging Logger)
@@ -35,7 +35,7 @@
               *out* out
               *err* out]
                 (try
-                  (clojure.main/repl :init #(do (in-ns 'user) (println "Clojure" (clojure-version))))
+                  (cm/repl :init #(do (in-ns 'user) (println "Clojure" (clojure-version))))
                 (catch Exception e ; discard errors caused by abrupt disconnection
                   nil)))))
       "Repl Thread")]

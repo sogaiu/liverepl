@@ -108,7 +108,7 @@ public class Agent {
 
     private static boolean isClojureLoaded() {
         try {
-            ClassLoader cl = Thread.currentThread().getContextClassLoader();
+            ClassLoader cl = ClassLoader.getSystemClassLoader();
             cl.loadClass("clojure.lang.RT");
             return true;
         } catch (ClassNotFoundException e) {

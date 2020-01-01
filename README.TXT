@@ -1,13 +1,6 @@
 LiveRepl
 ========
 
-***
-New download locations for binaries:
-  http://djpowell.net/files/liverepl-1.0.zip
-  http://djpowell.net/files/liverepl-1.1-alpha.zip
-***
-
-
 Start a Clojure REPL connected to any running Java or Clojure process
 without needing the process to be setup in any special way beforehand.
 
@@ -29,19 +22,7 @@ Build
 =====
 
 To build:
-
-  Copy clojure.jar to: ./liverepl-server/lib/clojure.jar
-
-  Run ant
-
-The build will be copied to: ./build/
-
-----------------------------------------
-
-Configuration
-=============
-
-Edit liverepl.bat to point to your installed JDK
+   lein uberjar
 
 ----------------------------------------
 
@@ -51,22 +32,21 @@ Operation
 To see a list of running Java processes on the system, and their
 process ids, enter:
 
-   liverepl
+   lein run
 
 To see the available ClassLoaders for a specific process, enter:
 
-   liverepl <pid>
+   lein run <pid>
 
       -- where the pid is the process id for the process, obtained in
          the step above.
 
 To connect a repl to the process, enter:
 
-   liverepl <pid> <classloader-id>
+   lein run <pid> <classloader-id>
 
       -- where the pid is the process id for the process.
       -- and the classloader-id was obtained in the step above.
 
    if you aren't sure which ClassLoader to use, try '0', which
    will always be the System ClassLoader.
-
